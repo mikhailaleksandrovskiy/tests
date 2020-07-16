@@ -21,7 +21,7 @@ def attack(user):
         if user == who_first_name:
             result = who_first_name['damage'] / who_second['armor']
             result = round(result, 2)
-            print(f'{who_second["name"]}, вы заблокировали {who_first_name["armor"]} целых от удара\nУрон составил {result}')
+            print(f'{who_second["name"]}, вы заблокировали {who_second["armor"]} целых от удара\nУрон составил {result}')
             return result
         elif user == who_second:
             result = who_second['damage'] / who_first_name['armor']
@@ -29,9 +29,9 @@ def attack(user):
             print(f'{who_first_name["name"]}, вы заблокировали {who_first_name["armor"]} целых от удара\nУрон составил {result}')
             return result
     if user == who_first_name:
-        health_result = who_second['health'] - armor(who_first_name)
-        health_result = round(health_result, 2)
-        who_second['health'] = health_result
+        health_result1 = who_second['health'] - armor(who_first_name)
+        health_result1 = round(health_result1, 2)
+        who_second['health'] = health_result1
     elif user == who_second:
         health_result = who_first_name['health'] - armor(who_second)
         health_result = round(health_result, 2)
@@ -74,6 +74,8 @@ while who_first_name['health'] > 0 and who_second['health'] > 0:
         who_first_name["armor"] = random.randrange(10,20) / 10
     else:
         print("ERROR 404")
+    if who_second['health'] < 0:
+        continue
     print(f'Ваша жизнь = {who_second["health"]}\nВаша сила аттаки = {who_second["damage"]}')
     player_choice = int(input(""))
     if player_choice == 1:
