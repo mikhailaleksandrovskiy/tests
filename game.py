@@ -76,6 +76,7 @@ while who_first_name['health'] > 0 and who_second['health'] > 0:
         first_health = who_first_name["health"] + random.randrange(0,25)
         first_health = round(first_health, 2)
         who_first_name["health"] = first_health
+        who_first_name["damage"] = random.randrange(75)
         print(f'{who_first_name["name"]} ваша жизнь теперь = {who_first_name["health"]} \n')
     if who_second['health'] < 0:
         continue
@@ -89,6 +90,7 @@ while who_first_name['health'] > 0 and who_second['health'] > 0:
         second_health = who_second["health"] + random.randrange(0,25)
         second_health = round(second_health, 2)
         who_second["health"] = second_health
+        who_second["damage"] = random.randrange(75)
         print(f'{who_second["name"]} ваша жизнь теперь = {who_second["health"]} \n')
 else:
     if who_first_name['health'] < 0:
