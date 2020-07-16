@@ -47,14 +47,14 @@ who_second = str()
 while i != 5:
     player_one = int(input(player['name'] + " угадайте число от 0 до 5: "))
     if who_first == player_one:
-        print(f"{player['name']} вы будите ходить первым!")
+        print(f"{player['name']} вы будете ходить первым!")
         who_first_name = player
         break
 
     elif who_first != player_one:
         player_two = int(input(enemy['name'] + " угадайте число от 0 до 5: "))
         if who_first == player_two:
-            print(f"{enemy['name']}, вы будите ходить первым!")
+            print(f"{enemy['name']}, вы будете ходить первым!")
             who_first_name = enemy
             break
         else:
@@ -64,9 +64,9 @@ if who_first_name == player:
     who_second = enemy
 elif who_first_name == enemy:
     who_second = player
-print("Запомните, чтобы аттаковать напишите '1'\nЧтобы подличиться напишите '2'")
+print("Запомните, чтобы атаковать, напишите '1'\nЧтобы подлечиться, напишите '2'")
 while who_first_name['health'] > 0 and who_second['health'] > 0:
-    print(f'{who_first_name["name"]} ваша жизнь = {who_first_name["health"]}\nВаша сила аттаки = {who_first_name["damage"]}')
+    print(f'{who_first_name["name"]} ваша жизнь = {who_first_name["health"]}\nВаша сила атаки = {who_first_name["damage"]}')
     player_choice = int(input(""))
     if player_choice == 1:
         attack(who_first_name)
@@ -80,7 +80,7 @@ while who_first_name['health'] > 0 and who_second['health'] > 0:
         print(f'{who_first_name["name"]} ваша жизнь теперь = {who_first_name["health"]} \n')
     if who_second['health'] < 0:
         continue
-    print(f'{who_second["name"]} ваша жизнь = {who_second["health"]}\nВаша сила аттаки = {who_second["damage"]}')
+    print(f'{who_second["name"]} ваша жизнь = {who_second["health"]}\nВаша сила атаки = {who_second["damage"]}')
     player_choice = int(input(""))
     if player_choice == 1:
         attack(who_second)
