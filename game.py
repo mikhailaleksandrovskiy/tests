@@ -64,24 +64,32 @@ if who_first_name == player:
     who_second = enemy
 elif who_first_name == enemy:
     who_second = player
-print("Запомните, чтобы аттаковать напишите '1'")
+print("Запомните, чтобы аттаковать напишите '1'\nЧтобы подличиться напишите '2'")
 while who_first_name['health'] > 0 and who_second['health'] > 0:
-    print(f'Ваша жизнь = {who_first_name["health"]}\nВаша сила аттаки = {who_first_name["damage"]}')
+    print(f'{who_first_name["name"]} ваша жизнь = {who_first_name["health"]}\nВаша сила аттаки = {who_first_name["damage"]}')
     player_choice = int(input(""))
     if player_choice == 1:
         attack(who_first_name)
         who_first_name["damage"] = random.randrange(75)
         who_first_name["armor"] = random.randrange(10,20) / 10
-    else:
-        print("ERROR 404")
+    elif player_choice == 2:
+        first_health = who_first_name["health"] + random.randrange(0,25)
+        first_health = round(first_health, 2)
+        who_first_name["health"] = first_health
+        print(f'{who_first_name["name"]} ваша жизнь теперь = {who_first_name["health"]} \n')
     if who_second['health'] < 0:
         continue
-    print(f'Ваша жизнь = {who_second["health"]}\nВаша сила аттаки = {who_second["damage"]}')
+    print(f'{who_second["name"]} ваша жизнь = {who_second["health"]}\nВаша сила аттаки = {who_second["damage"]}')
     player_choice = int(input(""))
     if player_choice == 1:
         attack(who_second)
         who_second["damage"] = random.randrange(75)
         who_second["armor"] = random.randrange(10,20) / 10
+    elif player_choice == 2:
+        second_health = who_second["health"] + random.randrange(0,25)
+        second_health = round(second_health, 2)
+        who_second["health"] = second_health
+        print(f'{who_second["name"]} ваша жизнь теперь = {who_second["health"]} \n')
 else:
     if who_first_name['health'] < 0:
         print(f"{who_second['name']}, вы выйграли!!")
